@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result A</title>
+</head>
+<body>
+<h2>Bài 5 - Result</h2>
+<h1 th:text="${message}">model message</h1>
+<h1 th:text="${param.message}">param message</h1>
+<p><a href="/b">/b (model -> forward -> /a)</a></p>
+<p><a href="/c">/c (redirect attribute -> /a)</a></p>
+<p><a href="/d">/d (response body)</a></p>
+</body>
+</html>

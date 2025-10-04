@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+<h2>Bài 6 - Phân trang</h2>
+<form method="get" action="/product/list">
+    Page size: <input name="size" th:value="${size}" />
+    Page: <input name="page" th:value="${page}" />
+    <button>Go</button>
+</form>
+<ul>
+    <th:block th:each="p : ${pageItems}">
+        <li th:text="${p.name}">name</li>
+        <li th:text="${p.price}">price</li>
+    </th:block>
+</ul>
+<p>Pages:
+    <th:block th:each="i : ${#numbers.sequence(1, totalPages)}">
+        <a th:href="@{/product/list(page=${i}, size=${size})}" th:text="${i}">i</a>
+    </th:block>
+</p>
+</body>
+</html>
